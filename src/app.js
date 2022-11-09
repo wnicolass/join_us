@@ -1,9 +1,16 @@
 const express = require("express");
 const app = express();
+const db = require("./database/config");
 
 app.get("/", (req, res) => {
-  res.send("Welcome to my website");
-  console.log("Someone requested us!");
+  let myQuery = "SELECT COUNT(*) AS count FROM users";
+  db.query(myQuery, (err, results) => {
+    if (err) {
+      throw err;
+    }
+    let count = results[0].count;
+    res.send(`We have ${count} users in our database`);
+  });
 });
 
 app.get("/joke", (req, res) => {
