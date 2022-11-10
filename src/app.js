@@ -29,18 +29,6 @@ app.post("/register", (req, res) => {
   });
 });
 
-app.get("/joke", (req, res) => {
-  let joke =
-    "<strong>What do you call a dog that does magic tricks?</strong> <em>A labracadabrador</em>";
-  res.send(joke);
-  console.log("requested the joke route");
-});
-
-app.get("/random_num", (req, res) => {
-  let randomNum = Math.floor(Math.random() * 10) + 1;
-  res.send("Your lucky number is " + randomNum);
-});
-
 app.listen(3000, () => {
   console.log("Server running on port 3000!");
 });
