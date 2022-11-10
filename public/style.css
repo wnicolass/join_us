@@ -1,3 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Sen&display=swap");
+
+:root {
+  --bg-gradient: linear-gradient(90deg, #c91842 0%, #5cc2e2 100%);
+
+  font-size: 62.5%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  background-color: lavender;
+  background-image: url("./assets/bg.jpg");
+  background-position: top center;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-color: #121214;
+
+  height: 100vh;
+  width: 100vw;
+
+  overflow: hidden;
+}
+
+body * {
+  font-size: 1.6rem;
+  font-family: "Sen", sans-serif;
+  color: #fff;
+}
+
+header {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 3rem;
+}
+
+h1 {
+  font-size: 15rem;
+  text-shadow: 0px 10px 10px rgba(255, 255, 255, 0.2);
+}
+
+.bg-container {
+  background-image: var(--bg-gradient);
+  padding-top: 4px;
+  border-radius: 10px;
+
+  width: min(90%, 800px);
+
+  margin: 15rem auto 0;
+}
+
+.container {
+  background-color: #262629;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 2rem;
+
+  text-align: center;
+
+  border-radius: 4px;
+}
+
+.container p {
+  margin-bottom: 2rem;
+}
+
+.container p,
+.container strong {
+  font-size: 4rem;
 }
