@@ -80,6 +80,71 @@ h1 {
   font-size: 4rem;
 }
 
+form {
+  width: 70%;
+  height: 4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1rem;
+}
+
+form input {
+  width: 70%;
+  height: 100%;
+
+  color: #262629;
+  font-size: 2rem;
+
+  padding: 0.5rem;
+
+  border-radius: 4px;
+  border: none;
+}
+
+form input:focus {
+  outline: none;
+  box-shadow: 0 5px 15px 5px rgba(255, 255, 255, 0.13);
+}
+
+form button {
+  height: 100%;
+  width: 12rem;
+  font-size: 2rem;
+
+  background: var(--bg-gradient);
+  border-radius: 4px;
+
+  border: none;
+
+  cursor: pointer;
+  z-index: 1;
+  position: relative;
+}
+
+form button::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  background-image: linear-gradient(-90deg, #c91842 0%, #5cc2e2 100%);
+  z-index: -1;
+
+  transition: opacity 0.5s linear;
+  opacity: 0;
+
+  border-radius: 4px;
+}
+
+form button:hover::before {
+  opacity: 1;
+}
+
 @media screen and (max-width: 600px) {
   h1 {
     font-size: 10rem;
