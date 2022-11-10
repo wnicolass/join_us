@@ -1,10 +1,11 @@
 const express = require("express");
-const app = express();
 const db = require("./database/config");
 const path = require("path");
+const app = express();
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   const myQuery = "SELECT COUNT(*) AS count FROM users";
@@ -14,6 +15,16 @@ app.get("/", (req, res) => {
     }
     const count = results[0].count;
     res.render("home", { count });
+  });
+});
+
+app.post("/register", (req, res) => {
+  const email = req.body.email;
+  db.query(`INSERT INTO users(email) VALUES('${email}')`, (err, results) => {
+    if (err) {
+      throw err;
+    }
+    res.redirect("/");
   });
 });
 
