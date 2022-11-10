@@ -14,7 +14,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/joke", (req, res) => {
-  let joke = "What do you call a dog that does magic tricks? A labracadabrador";
+  let joke =
+    "<strong>What do you call a dog that does magic tricks?</strong> <em>A labracadabrador</em>";
   res.send(joke);
   console.log("requested the joke route");
 });
