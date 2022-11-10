@@ -1,6 +1,10 @@
 const express = require("express");
 const app = express();
 const db = require("./database/config");
+const path = require("path");
+
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 
 app.get("/", (req, res) => {
   let myQuery = "SELECT COUNT(*) AS count FROM users";
@@ -9,7 +13,8 @@ app.get("/", (req, res) => {
       throw err;
     }
     let count = results[0].count;
-    res.send(`We have ${count} users in our database`);
+    // res.send(`We have ${count} users in our database`);
+    res.render("home");
   });
 });
 
