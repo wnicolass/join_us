@@ -7,14 +7,13 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.get("/", (req, res) => {
-  let myQuery = "SELECT COUNT(*) AS count FROM users";
+  const myQuery = "SELECT COUNT(*) AS count FROM users";
   db.query(myQuery, (err, results) => {
     if (err) {
       throw err;
     }
-    let count = results[0].count;
-    // res.send(`We have ${count} users in our database`);
-    res.render("home");
+    const count = results[0].count;
+    res.render("home", { count });
   });
 });
 
